@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Gravity Blast</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1 class="title">Gravity <span class="accent">Blast</span></h1>
+      <button id="restartBtn" class="btn btn-ghost" title="Restart">↻ Restart</button>
+    </header>
+
+    <section class="hud">
+      <div class="hud-card">
+        <div class="hud-label">Score</div>
+        <div class="hud-value" id="scoreEl">0</div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-label">Best</div>
+        <div class="hud-value" id="highScoreEl">0</div>
+      </div>
+      <div class="hud-card gravity-card">
+        <div class="hud-label">Gravity</div>
+        <div class="gravity-indicator">
+          <div class="arrow" id="gravityArrow">↓</div>
+          <div class="next-grav">next: <span id="nextGravity">?</span></div>
+        </div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-label">Combo</div>
+        <div class="hud-value" id="comboEl">x1</div>
+      </div>
+    </section>
+
+    <main class="play-area">
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+        <div class="popups" id="popups"></div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="tray" id="tray"></div>
+
+        <details class="instructions">
+          <summary>How to play</summary>
+          <ol>
+            <li>Click a piece in the tray to select it.</li>
+            <li>Hover the board to preview — green = valid, red = invalid.</li>
+            <li>Click to place. <b>6+ same-colored blocks touching</b> clear together for points.</li>
+            <li><b>Gravity shifts to a random direction</b> after every move (↓ ← ↑ →).</li>
+            <li>All loose blocks slide fully in the new gravity direction.</li>
+            <li>Game ends when no piece fits anywhere. Survive!</li>
+          </ol>
+        </details>
+      </aside>
+    </main>
+
+    <div class="overlay hidden" id="gameOverOverlay">
+      <div class="overlay-card">
+        <h2>Game Over</h2>
+        <p>Your score</p>
+        <div class="final-score" id="finalScore">0</div>
+        <p class="best-line">Best: <span id="finalHigh">0</span></p>
+        <button class="btn btn-primary" id="playAgainBtn">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
